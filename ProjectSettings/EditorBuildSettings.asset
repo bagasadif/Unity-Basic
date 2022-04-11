@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuScene.unity
     guid: 035b8e5457907cc4a9fbe8643e10903e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PauseScene.unity
     guid: 5fb9a2a3f66122d41a5914db163c732a
   - enabled: 1
@@ -16,5 +16,5 @@ EditorBuildSettings:
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/ARScene.unity
-    guid: 71c287600b7b0834d92442fbcc1cea9d
+    guid: 1c6fdd1eccb809b4280e8c0d08911be2
   m_configObjects: {}

@@ -1,13 +1,12 @@
 {
   "dependencies": {
     "com.ptc.vuforia.engine": {
-      "version": "git+https://git-packages.developer.vuforia.com#9.8.11",
+      "version": "file:C:/Users/Bagas Adi Firdaus/Downloads/com.ptc.vuforia.engine",
       "depth": 0,
-      "source": "git",
+      "source": "local",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
-      },
-      "hash": "efa13d4486cf5af05d9f6cc2eb243dcd5e26f95b"
+      }
     },
     "com.unity.cinemachine": {
       "version": "2.6.11",
