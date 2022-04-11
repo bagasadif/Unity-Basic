@@ -26,6 +26,7 @@ public class Movement : MonoBehaviour
     
     public CapsuleCollider col;
     public float distToGround;
+    public GameObject toggler;
 
     private void Awake()
     {
@@ -61,7 +62,7 @@ public class Movement : MonoBehaviour
             return;
         }
 
-		if(_controls.Player.Run.IsPressed()){
+		if(_controls.Player.Run.IsPressed() || toggler.GetComponent<Toggle>().isOn){
 			isRunning = true;
         } else {
 			isRunning = false;
@@ -117,7 +118,7 @@ public class Movement : MonoBehaviour
             return;
         }
 
-		if(_controls.Player.Run.IsPressed()){
+		if(_controls.Player.Run.IsPressed() || toggler.GetComponent<Toggle>().isOn){
 			isRunning = true;
         } else {
 			isRunning = false;
@@ -200,7 +201,7 @@ public class Movement : MonoBehaviour
         _rb.MovePosition(target); 
     }
 
-	public void setRun(){
+    public void setRun(){
 		if(isRunning){
 			isRunning = false;
 		} else {

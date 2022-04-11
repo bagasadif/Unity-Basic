@@ -1640,6 +1640,7 @@ MonoBehaviour:
   stepSmooth: 0.1
   col: {fileID: 629838246}
   distToGround: 0
+  toggler: {fileID: 41439231}
 --- !u!136 &629838246
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2252,7 +2253,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.17121497, y: -0.0000000017887273, z: -3.1084782e-10, w: 0.9852337}
+  m_LocalRotation: {x: 0.17121497, y: 0.0000000017887273, z: 3.1084782e-10, w: 0.9852337}
   m_LocalPosition: {x: 0, y: 3.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4304,7 +4305,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917103249}
-  m_LocalRotation: {x: 0.062324416, y: 0.000000017306572, z: -0.000000001080723, w: 0.998056}
+  m_LocalRotation: {x: 0.062324416, y: -0.000000017306572, z: 0.000000001080723, w: 0.998056}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
