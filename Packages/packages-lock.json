@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.ptc.vuforia.engine": {
+      "version": "git+https://git-packages.developer.vuforia.com#9.8.11",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "hash": "efa13d4486cf5af05d9f6cc2eb243dcd5e26f95b"
+    },
     "com.unity.cinemachine": {
       "version": "2.6.11",
       "depth": 0,
@@ -9,13 +18,6 @@
     },
     "com.unity.collab-proxy": {
       "version": "1.14.12",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.device-simulator": {
-      "version": "3.0.3-preview",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

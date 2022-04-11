@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private int speed = 10;
-    [SerializeField] private float jumpForce = 0.1f;
+    [SerializeField] private float jumpForce = 100f;
     [SerializeField] private bool usePhysics = true;
 	[SerializeField] private bool isRunning = false;
 	[SerializeField] private bool isJumping = false;
@@ -26,7 +26,6 @@ public class Movement : MonoBehaviour
     
     public CapsuleCollider col;
     public float distToGround;
-	public GameObject toggler;
 
     private void Awake()
     {
@@ -62,14 +61,14 @@ public class Movement : MonoBehaviour
             return;
         }
 
-		if(_controls.Player.Run.IsPressed() || toggler.GetComponent<Toggle>().isOn){
+		if(_controls.Player.Run.IsPressed()){
 			isRunning = true;
         } else {
 			isRunning = false;
 		}
 
 		if (isRunning){
-			speed = 30;
+			speed = 15;
 			ShakingCamera.Instance.ShakeCamera(3f);
 			_animator.SetBool(IsRunning, true);
 		} else {
@@ -95,6 +94,7 @@ public class Movement : MonoBehaviour
 
             Vector2 input = _controls.Player.Move.ReadValue<Vector2>();
             Vector3 target = HandleInput(input);
+            RotateCharacter(target);
             Move(target);
         }
         else
@@ -117,16 +117,18 @@ public class Movement : MonoBehaviour
             return;
         }
 
-		if(_controls.Player.Run.IsPressed() || toggler.GetComponent<Toggle>().isOn){
+		if(_controls.Player.Run.IsPressed()){
 			isRunning = true;
         } else {
 			isRunning = false;
 		}
 
 		if (isRunning){
-			speed = 30;
-			ShakingCamera.Instance.ShakeCamera(3f);
+			speed = 15;
 			_animator.SetBool(IsRunning, true);	
+            if(_animator.GetBool(IsWalking)){
+                ShakingCamera.Instance.ShakeCamera(3f);
+            }
 		} else {
 			speed = 10;
 			ShakingCamera.Instance.ShakeCamera(0f);
@@ -151,6 +153,7 @@ public class Movement : MonoBehaviour
             }
             Vector2 input = _controls.Player.Move.ReadValue<Vector2>();
             Vector3 target = HandleInput(input);
+            RotateCharacter(target);
             MovePhysics(target);
         }
         else
@@ -182,6 +185,11 @@ public class Movement : MonoBehaviour
         return transform.position + direction * speed * Time.deltaTime;
     }
 
+    private void RotateCharacter(Vector3 target)
+    {
+        transform.rotation = Quaternion.LookRotation(target-transform.position);
+    }
+
     private void Move(Vector3 target)
     {
         transform.position = target;
@@ -209,15 +217,6 @@ public class Movement : MonoBehaviour
 				_animator.SetBool(IsRunning, false);			
         		_animator.SetBool(IsWalking, false);
 			}
-		} 
-    }
-
-    public void JumpTouch()
-    {
-		if(IsGrounded()){
-			_rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-			_animator.SetBool(IsRunning, false);			
-        	_animator.SetBool(IsWalking, false);
 		} 
     }
 
